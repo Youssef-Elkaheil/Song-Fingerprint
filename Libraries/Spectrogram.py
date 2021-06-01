@@ -13,11 +13,10 @@ class Spectrogram():
         return spectr
 
     @staticmethod 
-    def Features(file_data, sr, spectro):       
-
-        melspectro = librosa.feature.melspectrogram(file_data, sr=sr, S=spectro)
-        chroma_stft = librosa.feature.chroma_stft(file_data, sr=sr, S=spectro)
+    def Features(file_data, sr):       
+        spectro = Spectrogram.spectrogram(file_data)
+        melspectro = librosa.feature.melspectrogram(file_data, sr=sr,)
         mfccs = librosa.feature.mfcc(file_data.astype('float64'), sr=sr)
+        chroma_stft = librosa.feature.chroma_stft(file_data, sr=sr,)
         
-        return [melspectro, mfccs, chroma_stft]
-
+        return [spectro,melspectro, mfccs, chroma_stft]

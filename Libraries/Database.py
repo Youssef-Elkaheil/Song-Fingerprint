@@ -37,7 +37,7 @@ class Database ():
         components = ["Full", "Music", "Vocals"]
         Groups = [] 
         for i in range(2,26):
-            if i not in (4,6,19): Groups.append(i)
+            if i not in (4,6,19,22): Groups.append(i)
         # print(Groups)
 
         for Group_No in Groups:
@@ -48,15 +48,15 @@ class Database ():
                     path = os.path.join("Songs",song_name + ".mp3")
                     # read file
                     data, samplingRate = Sound.ReadFile(path)
-                    spectrum = Spectrogram.spectrogram(data)
+                    
                     features = Spectrogram.Features(
-                        data,samplingRate ,spectrum )
-                    Hashes = [Database.Hash(spectrum)]
-                    for j in range(3):
+                        data,samplingRate)
+                    Hashes = []
+                    for j in range(4):
                         Hashes.append(Database.Hash(features[j]))
 
                     song = {
-                        "songName": "Group" + song_name,
+                        "SongName": song_name,
                         "spectrogram_hash": Hashes[0],
                         "melspectrogram": Hashes[1],
                         "mfcc": Hashes[2],

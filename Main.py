@@ -1,13 +1,12 @@
 import UI
 from PyQt5 import QtWidgets
-import logging
+
 
 class Main(UI.Ui_MainWindow):
 
     def __init__(self,MainWindow):
         super(Main,self).setupUi(MainWindow)
-        self.logger = logging.getLogger()   # Logger maintainer
-        self.logger.setLevel(logging.DEBUG)
+        
         self.audFiles = [None, None]    # List Containing both songs
         self.audRates = [None, None]    # List contains Songs Rates which must be equal
         for i in range(2):

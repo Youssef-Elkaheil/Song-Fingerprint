@@ -1,4 +1,6 @@
+import os
 import librosa
+import winsound
 from soundfile import SoundFile as sf
 
 class Sound():
@@ -11,10 +13,14 @@ class Sound():
         # get first min
         return data, SampleRate
 
-
     @staticmethod
-    def fn_CreateSoundFile(arr_of_realNum, samplrate, fileName):
+    def CreateSoundFile(arr_of_realNum, samplrate, fileName):
         file_handle = sf(fileName, mode='w', samplerate=samplrate, channels=1,
                          subtype=None, endian='FILE', format='WAV', closefd=True)
         file_handle.write(arr_of_realNum)
         file_handle.close()
+
+    @staticmethod
+    def fn_PlaySoundFile(file_name="MixedSong.wav"):
+        winsound.PlaySound(file_name, winsound.SND_FILENAME)
+        os.remove(file_name)
