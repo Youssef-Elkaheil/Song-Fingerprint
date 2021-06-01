@@ -34,39 +34,38 @@ class Database ():
     def PlotData():
         # iterate over songs paths
         songs = []
-        strings = ["Full", "Music", "Vocals"]
-        # groups = [24]
-        groups = [24]
-        for group_number in groups:
-            count = 1
-            for i in range(0, 4):
-                arr = []
-                for j in strings:
-                    path = os.path.join("Songs", "Group" +
-                                        str(group_number)+"_Song" + str(count)) + "_" + j + ".mp3"
-                    print(path)
+        components = ["Full", "Music", "Vocals"]
+        Groups = [] 
+        for i in range(2,26):
+            if i not in (4,6,19): Groups.append(i)
+        # print(Groups)
+
+        for Group_No in Groups:
+            for i in range(1,5):
+                Song_components = []
+                for component in components:
+                    song_name = "Group" + str(Group_No)+"_Song" + str(i) + "_" + component
+                    path = os.path.join("Songs",song_name + ".mp3")
                     # read file
                     data, samplingRate = Sound.ReadFile(path)
-                    # get spectrogram
                     spectrum = Spectrogram.spectrogram(data)
-                    # hash spectrogram
-                    specto_hash = Database.Hash(spectrum)
                     features = Spectrogram.Features(
                         data,samplingRate ,spectrum )
-
-                    feature_1_hash = Database.Hash(features[0])
-                    feature_2_hash = Database.Hash(features[1])
+                    Hashes = [Database.Hash(spectrum)]
+                    for j in range(3):
+                        Hashes.append(Database.Hash(features[j]))
 
                     song = {
-                        "songName": "Group" + str(group_number) + "_Song" + str(count) + "_" + j,
-                        "spectrogram_hash": specto_hash,
-                        "feature_1": feature_1_hash,
-                        "feature_2": feature_2_hash
+                        "songName": "Group" + song_name,
+                        "spectrogram_hash": Hashes[0],
+                        "melspectrogram": Hashes[1],
+                        "mfcc": Hashes[2],
+                        "chroma_stft": Hashes[3]
                     }
-                    arr.append(song)
-                count += 1
-                songs.append(arr)
-            print(group_number)
+                    Song_components.append(song)
+                songs.append(Song_components)
+            print(Group_No)
 
         Database.write(songs, "DataBase.json")
+
 Database.PlotData()
