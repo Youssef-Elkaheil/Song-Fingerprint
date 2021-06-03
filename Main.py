@@ -6,7 +6,8 @@ class Main(UI.Ui_MainWindow):
 
     def __init__(self,MainWindow):
         super(Main,self).setupUi(MainWindow)
-        
+        self.Loadbtns = [self.openSong1, self.openSong2]
+        self.Text = [self.Text1, self.Text2]
         self.audFiles = [None, None]    # List Containing both songs
         self.audRates = [None, None]    # List contains Songs Rates which must be equal
         for i in range(2):

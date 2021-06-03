@@ -1,9 +1,8 @@
 import os
 import json
-import imagehash
-from PIL import Image
-from Sound import Sound
-from Spectrogram import Spectrogram
+
+from Libraries.Sound import Sound
+from Libraries.Spectrogram import Spectrogram
 
 class Database ():
 
@@ -24,48 +23,32 @@ class Database ():
             data = json.loads(file.read())
         return data
 
-    @staticmethod
-    def Hash(array):
-        arr = Image.fromarray(array)
-        hash = imagehash.phash(arr, hash_size=16).__str__()
-        return hash
+    
         
     @staticmethod
     def PlotData():
         # iterate over songs paths
-        songs = []
+        songs = {}
         components = ["Full", "Music", "Vocals"]
         Groups = [] 
         for i in range(2,26):
             if i not in (4,6,19,22): Groups.append(i)
-        # print(Groups)
+        
 
         for Group_No in Groups:
             for i in range(1,5):
-                Song_components = []
                 for component in components:
                     song_name = "Group" + str(Group_No)+"_Song" + str(i) + "_" + component
                     path = os.path.join("Songs",song_name + ".mp3")
-                    # read file
                     data, samplingRate = Sound.ReadFile(path)
-                    
-                    features = Spectrogram.Features(
-                        data,samplingRate)
+                    features = Spectrogram.Features(data,samplingRate)
                     Hashes = []
                     for j in range(4):
-                        Hashes.append(Database.Hash(features[j]))
-
-                    song = {
-                        "SongName": song_name,
-                        "spectrogram_hash": Hashes[0],
-                        "melspectrogram": Hashes[1],
-                        "mfcc": Hashes[2],
-                        "chroma_stft": Hashes[3]
-                    }
-                    Song_components.append(song)
-                songs.append(Song_components)
+                        Hashes.append(Spectrogram.Hash(features[j]))
+                    song = Sound.create_dict(song_name,Hashes)
+                    songs.update(song)
             print(Group_No)
 
         Database.write(songs, "DataBase.json")
 
-Database.PlotData()
+# Database.PlotData()
