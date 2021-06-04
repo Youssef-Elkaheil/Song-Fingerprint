@@ -19,13 +19,18 @@ class Main(UI.Ui_MainWindow):
         logger = logging.getLogger()
         logger.setLevel(logging.DEBUG)
         self.Loadbtns = [self.openSong1, self.openSong2]
-        self.Text = [self.Text1, self.Text2]
+        
         self.audFiles = [None, None]    # List Containing both songs
         self.SamplingRate = [0, 0]
         self.similarityResults = []
         for i in range(2):
             self.Loadbtns[i].clicked.connect(lambda checked, i=i:self.loadFile(i))
         self.Mix.clicked.connect(self.Searching)
+        self.Slider.valueChanged.connect(self.updateratio)
+    
+    def updateratio(self):
+        self.label.setText("{s} : {n}".format(
+            n=self.Slider.value(), s=(100-self.Slider.value())))
 
     def loadFile(self,flag):
         self.statusBar.showMessage("Loading Song {}".format(flag+1))
@@ -50,9 +55,13 @@ class Main(UI.Ui_MainWindow):
             logger.info("extraction successful")
             self.audFiles[flag] = audData
             self.SamplingRate[flag] = audRate
-            self.Text[flag].setText(audFile.split('/')[-1])
+            self.Loadbtns[flag].setText(audFile.split('/')[-1])
             self.statusBar.showMessage("Loading Done")
             logger.info("Loading done")
+            self.Mix.setEnabled(True)
+            if all(type(element) == numpy.ndarray for element in self.audFiles):
+                self.Slider.setEnabled(True)
+                self.label.show()
 
 
     def Searching(self):
@@ -81,6 +90,7 @@ class Main(UI.Ui_MainWindow):
         self.check_similarity()
 
     def check_similarity(self):
+        self.similarityResults.clear()
         logger.info("Searching similarities")
         self.statusBar.showMessage("Searching Similarities")
         for songName, songHashes in Database.read("DataBase.json"):
@@ -94,7 +104,6 @@ class Main(UI.Ui_MainWindow):
         print(self.similarityResults)
         logger.info("Searching and getting similarities Done")
         self.statusBar.showMessage("Getting Similarities Done")
-        print(self.similarityResults)
         self.similarityResults.sort(key=lambda x: x[1], reverse=True)
         logger.info("Searching similarities Done")
         self.statusBar.showMessage("Searching Similarities Done")
