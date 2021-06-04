@@ -1,10 +1,11 @@
 import UI
+import numpy
 import logging
-from PyQt5 import QtWidgets ,QtGui
 from Sound import Sound
+from PyQt5 import QtWidgets
 from Database import Database
 from Spectrogram import Spectrogram
-import numpy
+
 # Create and configure logger
 logging.basicConfig(filename="app.log",
                     format='%(asctime)s %(message)s',
@@ -47,7 +48,6 @@ class Main(UI.Ui_MainWindow):
                audData , audRate = Sound.ReadFile(audFile)
                
             except:
-                self.showWarring("Warning", "Error Uploading File")
                 self.statusBar.showMessage("Error Uploading File")
                 logger.warning("Error Uploading File")
                 return
@@ -59,79 +59,66 @@ class Main(UI.Ui_MainWindow):
             self.statusBar.showMessage("Loading Done")
             logger.info("Loading done")
             self.Mix.setEnabled(True)
-            if all(type(element) == numpy.ndarray for element in self.audFiles):
-                self.Slider.setEnabled(True)
-                self.label.show()
+            self.mixing()
+            
+    def mixing(self):
 
-
-    def Searching(self):
-
-        self.statusBar.showMessage("Finding Matches ...")
-        logger.info("starting searching process")
         if any(type(element) != numpy.ndarray for element in self.audFiles):
-            for i in range(2): 
+            for i in range(2):
                 if self.audFiles[i] is not None:
                     logger.info("loaded only one song")
-                    self.audMix = self.audFiles[i]    
-
+                    self.audMix = self.audFiles[i]
         elif all(type(element) == numpy.ndarray for element in self.audFiles):
             logger.info("loaded 2 songs")
             logger.info("starting Mixing")
+            self.Slider.setEnabled(True)
+            self.label.show()
             self.audMix = Sound.mix(self.audFiles, max(self.SamplingRate), self.Slider.value()/100)
 
+    def Searching(self):
+        self.mixing()
+        self.statusBar.showMessage("Finding Matches ...")
+        logger.info("starting searching process")
 
         self.spectrogram = Spectrogram.Features(self.audMix, max(self.SamplingRate))[0]
         self.testHash = Spectrogram.Hash(self.spectrogram)
-        # print(self.testHash)
+
         logger.info("Mixing Done")
         self.statusBar.clearMessage()
-        # for i in self.database:
-        #     print(self.database[i]['spectrogram_hash'])
+
         self.check_similarity()
 
     def check_similarity(self):
-        self.similarityResults.clear()
+
         logger.info("Searching similarities")
         self.statusBar.showMessage("Searching Similarities")
         for songName, songHashes in Database.read("DataBase.json"):
-            # print(songHashes["spectrogram_hash"])
             spectroDiff = Spectrogram.getSimilarity(
                 songHashes["spectrogram_hash"], self.testHash)
-            # print(spectroDiff)
             self.similarityResults.append((songName, spectroDiff*100))
 
         self.similarityResults.sort(key=lambda x: x[1], reverse=True)
-        print(self.similarityResults)
-        logger.info("Searching and getting similarities Done")
-        self.statusBar.showMessage("Getting Similarities Done")
-        self.similarityResults.sort(key=lambda x: x[1], reverse=True)
+        # print(self.similarityResults)        
         logger.info("Searching similarities Done")
         self.statusBar.showMessage("Searching Similarities Done")
-        # self.fill_table()
+        self.createTable()
 
-    def fill_table(self):
+    def createTable(self):
+
         self.tableWidget.clear()
         self.tableWidget.setRowCount(0)
         self.tableWidget.setHorizontalHeaderLabels(
-            ["Found Matches", "Percentage"])
-
+            ["Song Name", "Similarity"])
+        self.tableWidget.setFont(self.font)
         logger.info("Showing Results")
         self.statusBar.showMessage("Showing Results")
         for row in range(len(self.similarityResults)):
             self.tableWidget.insertRow(row)
-
             self.tableWidget.setItem(row, 0, QtWidgets.QTableWidgetItem(
                 self.similarityResults[row][0]))
             self.tableWidget.setItem(row, 1, QtWidgets.QTableWidgetItem(
                 str(round(self.similarityResults[row][1], 2))+"%"))
-
-        for col in range(2):
-            self.tableWidget.horizontalHeader().setSectionResizeMode(
-                col, QtWidgets.QHeaderView.Stretch)
-            self.tableWidget.horizontalHeaderItem(
-                col).setBackground(QtGui.QColor(57, 65, 67))
         self.similarityResults.clear()
-
         logger.info("Results Done")
         self.statusBar.showMessage("Results Done")
 

@@ -1,33 +1,116 @@
-2021-06-04 11:26:18,040 Song 1 Loaded
-2021-06-04 11:26:18,040 starting extraction of data
-2021-06-04 11:26:18,144 subprocess.call(['ffmpeg', '-y', '-f', 'mp3', '-i', 'F:/workshop/Github/Songs/Group2_Song1_Full.mp3', '-acodec', 'pcm_s16le', '-vn', '-f', 'wav', '-'])
-2021-06-04 11:26:18,733 subprocess.call(['ffmpeg', '-y', '-f', 'wav', '-i', 'C:\\Users\\Youssef\\AppData\\Local\\Temp\\tmpkb5g3cf4', '-ac', '1', '-f', 'wav', 'C:\\Users\\Youssef\\AppData\\Local\\Temp\\tmpztdqwzs3'])
-2021-06-04 11:26:18,869 subprocess output: b'ffmpeg version 2021-05-26-git-7a879cce37-full_build-www.gyan.dev Copyright (c) 2000-2021 the FFmpeg developers'
-2021-06-04 11:26:18,869 subprocess output: b'  built with gcc 10.3.0 (Rev2, Built by MSYS2 project)'
-2021-06-04 11:26:18,869 subprocess output: b'  configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-lzma --enable-libsnappy --enable-zlib --enable-librist --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-libbluray --enable-libcaca --enable-sdl2 --enable-libdav1d --enable-libzvbi --enable-librav1e --enable-libsvtav1 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-libass --enable-frei0r --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libglslang --enable-vulkan --enable-opencl --enable-libcdio --enable-libgme --enable-libmodplug --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libshine --enable-libtheora --enable-libtwolame --enable-libvo-amrwbenc --enable-libilbc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-ladspa --enable-libbs2b --enable-libflite --enable-libmysofa --enable-librubberband --enable-libsoxr --enable-chromaprint'
-2021-06-04 11:26:18,869 subprocess output: b'  libavutil      57.  0.100 / 57.  0.100'
-2021-06-04 11:26:18,870 subprocess output: b'  libavcodec     59.  1.100 / 59.  1.100'
-2021-06-04 11:26:18,870 subprocess output: b'  libavformat    59.  2.101 / 59.  2.101'
-2021-06-04 11:26:18,870 subprocess output: b'  libavdevice    59.  0.100 / 59.  0.100'
-2021-06-04 11:26:18,870 subprocess output: b'  libavfilter     8.  0.101 /  8.  0.101'
-2021-06-04 11:26:18,870 subprocess output: b'  libswscale      6.  0.100 /  6.  0.100'
-2021-06-04 11:26:18,870 subprocess output: b'  libswresample   4.  0.100 /  4.  0.100'
-2021-06-04 11:26:18,870 subprocess output: b'  libpostproc    56.  0.100 / 56.  0.100'
-2021-06-04 11:26:18,870 subprocess output: b'Guessed Channel Layout for Input Stream #0.0 : stereo'
-2021-06-04 11:26:18,870 subprocess output: b"Input #0, wav, from 'C:\\Users\\Youssef\\AppData\\Local\\Temp\\tmpkb5g3cf4':"
-2021-06-04 11:26:18,870 subprocess output: b'  Duration: 00:01:00.00, bitrate: 1411 kb/s'
-2021-06-04 11:26:18,870 subprocess output: b'  Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 44100 Hz, stereo, s16, 1411 kb/s'
-2021-06-04 11:26:18,870 subprocess output: b'Stream mapping:'
-2021-06-04 11:26:18,870 subprocess output: b'  Stream #0:0 -> #0:0 (pcm_s16le (native) -> pcm_s16le (native))'
-2021-06-04 11:26:18,870 subprocess output: b'Press [q] to stop, [?] for help'
-2021-06-04 11:26:18,870 subprocess output: b"Output #0, wav, to 'C:\\Users\\Youssef\\AppData\\Local\\Temp\\tmpztdqwzs3':"
-2021-06-04 11:26:18,870 subprocess output: b'  Metadata:'
-2021-06-04 11:26:18,870 subprocess output: b'    ISFT            : Lavf59.2.101'
-2021-06-04 11:26:18,870 subprocess output: b'  Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 44100 Hz, mono, s16, 705 kb/s'
-2021-06-04 11:26:18,870 subprocess output: b'    Metadata:'
-2021-06-04 11:26:18,870 subprocess output: b'      encoder         : Lavc59.1.100 pcm_s16le'
-2021-06-04 11:26:18,870 subprocess output: b'size=       2kB time=00:00:00.02 bitrate= 732.5kbits/s speed=N/A'
-2021-06-04 11:26:18,871 subprocess output: b'size=    5168kB time=00:01:00.00 bitrate= 705.6kbits/s speed=1.58e+03x'
-2021-06-04 11:26:18,871 subprocess output: b'video:0kB audio:5168kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 0.001474%'
-2021-06-04 11:26:18,884 extraction successful
-2021-06-04 11:26:18,885 Loading done
+2021-06-04 16:51:53,435 Song 1 Loaded
+2021-06-04 16:51:53,436 starting extraction of data
+2021-06-04 16:51:53,526 subprocess.call(['ffmpeg', '-y', '-f', 'mp3', '-i', 'F:/workshop/Github/Songs/Group2_Song1_Full.mp3', '-acodec', 'pcm_s16le', '-vn', '-f', 'wav', '-'])
+2021-06-04 16:51:54,074 subprocess.call(['ffmpeg', '-y', '-f', 'wav', '-i', 'C:\\Users\\Youssef\\AppData\\Local\\Temp\\tmpohru251j', '-ac', '1', '-f', 'wav', 'C:\\Users\\Youssef\\AppData\\Local\\Temp\\tmpn8o1tw3h'])
+2021-06-04 16:51:54,202 subprocess output: b'ffmpeg version 2021-05-26-git-7a879cce37-full_build-www.gyan.dev Copyright (c) 2000-2021 the FFmpeg developers'
+2021-06-04 16:51:54,202 subprocess output: b'  built with gcc 10.3.0 (Rev2, Built by MSYS2 project)'
+2021-06-04 16:51:54,202 subprocess output: b'  configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-lzma --enable-libsnappy --enable-zlib --enable-librist --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-libbluray --enable-libcaca --enable-sdl2 --enable-libdav1d --enable-libzvbi --enable-librav1e --enable-libsvtav1 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-libass --enable-frei0r --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libglslang --enable-vulkan --enable-opencl --enable-libcdio --enable-libgme --enable-libmodplug --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libshine --enable-libtheora --enable-libtwolame --enable-libvo-amrwbenc --enable-libilbc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-ladspa --enable-libbs2b --enable-libflite --enable-libmysofa --enable-librubberband --enable-libsoxr --enable-chromaprint'
+2021-06-04 16:51:54,202 subprocess output: b'  libavutil      57.  0.100 / 57.  0.100'
+2021-06-04 16:51:54,202 subprocess output: b'  libavcodec     59.  1.100 / 59.  1.100'
+2021-06-04 16:51:54,202 subprocess output: b'  libavformat    59.  2.101 / 59.  2.101'
+2021-06-04 16:51:54,202 subprocess output: b'  libavdevice    59.  0.100 / 59.  0.100'
+2021-06-04 16:51:54,203 subprocess output: b'  libavfilter     8.  0.101 /  8.  0.101'
+2021-06-04 16:51:54,203 subprocess output: b'  libswscale      6.  0.100 /  6.  0.100'
+2021-06-04 16:51:54,203 subprocess output: b'  libswresample   4.  0.100 /  4.  0.100'
+2021-06-04 16:51:54,203 subprocess output: b'  libpostproc    56.  0.100 / 56.  0.100'
+2021-06-04 16:51:54,203 subprocess output: b'Guessed Channel Layout for Input Stream #0.0 : stereo'
+2021-06-04 16:51:54,203 subprocess output: b"Input #0, wav, from 'C:\\Users\\Youssef\\AppData\\Local\\Temp\\tmpohru251j':"
+2021-06-04 16:51:54,203 subprocess output: b'  Duration: 00:01:00.00, bitrate: 1411 kb/s'
+2021-06-04 16:51:54,203 subprocess output: b'  Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 44100 Hz, stereo, s16, 1411 kb/s'
+2021-06-04 16:51:54,203 subprocess output: b'Stream mapping:'
+2021-06-04 16:51:54,203 subprocess output: b'  Stream #0:0 -> #0:0 (pcm_s16le (native) -> pcm_s16le (native))'
+2021-06-04 16:51:54,203 subprocess output: b'Press [q] to stop, [?] for help'
+2021-06-04 16:51:54,203 subprocess output: b"Output #0, wav, to 'C:\\Users\\Youssef\\AppData\\Local\\Temp\\tmpn8o1tw3h':"
+2021-06-04 16:51:54,203 subprocess output: b'  Metadata:'
+2021-06-04 16:51:54,203 subprocess output: b'    ISFT            : Lavf59.2.101'
+2021-06-04 16:51:54,203 subprocess output: b'  Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 44100 Hz, mono, s16, 705 kb/s'
+2021-06-04 16:51:54,203 subprocess output: b'    Metadata:'
+2021-06-04 16:51:54,203 subprocess output: b'      encoder         : Lavc59.1.100 pcm_s16le'
+2021-06-04 16:51:54,203 subprocess output: b'size=       2kB time=00:00:00.02 bitrate= 732.5kbits/s speed=N/A'
+2021-06-04 16:51:54,203 subprocess output: b'size=    5168kB time=00:01:00.00 bitrate= 705.6kbits/s speed=1.74e+03x'
+2021-06-04 16:51:54,203 subprocess output: b'video:0kB audio:5168kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 0.001474%'
+2021-06-04 16:51:54,214 extraction successful
+2021-06-04 16:51:54,214 Loading done
+2021-06-04 16:51:54,214 loaded only one song
+2021-06-04 16:51:55,525 loaded only one song
+2021-06-04 16:51:55,525 starting searching process
+2021-06-04 16:51:55,793 Mixing Done
+2021-06-04 16:51:55,793 Searching similarities
+2021-06-04 16:51:55,829 Searching similarities Done
+2021-06-04 16:51:55,832 Showing Results
+2021-06-04 16:51:55,834 Results Done
+2021-06-04 16:51:59,952 Song 2 Loaded
+2021-06-04 16:51:59,952 starting extraction of data
+2021-06-04 16:52:00,045 subprocess.call(['ffmpeg', '-y', '-f', 'mp3', '-i', 'F:/workshop/Github/Songs/Group2_Song1_Vocals.mp3', '-acodec', 'pcm_s16le', '-vn', '-f', 'wav', '-'])
+2021-06-04 16:52:00,586 subprocess.call(['ffmpeg', '-y', '-f', 'wav', '-i', 'C:\\Users\\Youssef\\AppData\\Local\\Temp\\tmpucmjscd7', '-ac', '1', '-f', 'wav', 'C:\\Users\\Youssef\\AppData\\Local\\Temp\\tmpre8xwgyk'])
+2021-06-04 16:52:00,703 subprocess output: b'ffmpeg version 2021-05-26-git-7a879cce37-full_build-www.gyan.dev Copyright (c) 2000-2021 the FFmpeg developers'
+2021-06-04 16:52:00,703 subprocess output: b'  built with gcc 10.3.0 (Rev2, Built by MSYS2 project)'
+2021-06-04 16:52:00,703 subprocess output: b'  configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-lzma --enable-libsnappy --enable-zlib --enable-librist --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-libbluray --enable-libcaca --enable-sdl2 --enable-libdav1d --enable-libzvbi --enable-librav1e --enable-libsvtav1 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-libass --enable-frei0r --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libglslang --enable-vulkan --enable-opencl --enable-libcdio --enable-libgme --enable-libmodplug --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libshine --enable-libtheora --enable-libtwolame --enable-libvo-amrwbenc --enable-libilbc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-ladspa --enable-libbs2b --enable-libflite --enable-libmysofa --enable-librubberband --enable-libsoxr --enable-chromaprint'
+2021-06-04 16:52:00,703 subprocess output: b'  libavutil      57.  0.100 / 57.  0.100'
+2021-06-04 16:52:00,703 subprocess output: b'  libavcodec     59.  1.100 / 59.  1.100'
+2021-06-04 16:52:00,704 subprocess output: b'  libavformat    59.  2.101 / 59.  2.101'
+2021-06-04 16:52:00,704 subprocess output: b'  libavdevice    59.  0.100 / 59.  0.100'
+2021-06-04 16:52:00,704 subprocess output: b'  libavfilter     8.  0.101 /  8.  0.101'
+2021-06-04 16:52:00,704 subprocess output: b'  libswscale      6.  0.100 /  6.  0.100'
+2021-06-04 16:52:00,704 subprocess output: b'  libswresample   4.  0.100 /  4.  0.100'
+2021-06-04 16:52:00,704 subprocess output: b'  libpostproc    56.  0.100 / 56.  0.100'
+2021-06-04 16:52:00,704 subprocess output: b'Guessed Channel Layout for Input Stream #0.0 : stereo'
+2021-06-04 16:52:00,704 subprocess output: b"Input #0, wav, from 'C:\\Users\\Youssef\\AppData\\Local\\Temp\\tmpucmjscd7':"
+2021-06-04 16:52:00,704 subprocess output: b'  Duration: 00:01:00.00, bitrate: 1411 kb/s'
+2021-06-04 16:52:00,704 subprocess output: b'  Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 44100 Hz, stereo, s16, 1411 kb/s'
+2021-06-04 16:52:00,704 subprocess output: b'Stream mapping:'
+2021-06-04 16:52:00,704 subprocess output: b'  Stream #0:0 -> #0:0 (pcm_s16le (native) -> pcm_s16le (native))'
+2021-06-04 16:52:00,704 subprocess output: b'Press [q] to stop, [?] for help'
+2021-06-04 16:52:00,704 subprocess output: b"Output #0, wav, to 'C:\\Users\\Youssef\\AppData\\Local\\Temp\\tmpre8xwgyk':"
+2021-06-04 16:52:00,704 subprocess output: b'  Metadata:'
+2021-06-04 16:52:00,704 subprocess output: b'    ISFT            : Lavf59.2.101'
+2021-06-04 16:52:00,704 subprocess output: b'  Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 44100 Hz, mono, s16, 705 kb/s'
+2021-06-04 16:52:00,704 subprocess output: b'    Metadata:'
+2021-06-04 16:52:00,704 subprocess output: b'      encoder         : Lavc59.1.100 pcm_s16le'
+2021-06-04 16:52:00,704 subprocess output: b'size=       2kB time=00:00:00.02 bitrate= 732.5kbits/s speed=N/A'
+2021-06-04 16:52:00,704 subprocess output: b'size=    5168kB time=00:01:00.00 bitrate= 705.6kbits/s speed=1.77e+03x'
+2021-06-04 16:52:00,704 subprocess output: b'video:0kB audio:5168kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 0.001474%'
+2021-06-04 16:52:00,715 extraction successful
+2021-06-04 16:52:00,715 Loading done
+2021-06-04 16:52:00,715 loaded 2 songs
+2021-06-04 16:52:00,715 starting Mixing
+2021-06-04 16:52:02,180 loaded 2 songs
+2021-06-04 16:52:02,180 starting Mixing
+2021-06-04 16:52:02,340 starting searching process
+2021-06-04 16:52:02,741 Mixing Done
+2021-06-04 16:52:02,741 Searching similarities
+2021-06-04 16:52:02,792 Searching similarities Done
+2021-06-04 16:52:02,792 Showing Results
+2021-06-04 16:52:02,794 Results Done
+2021-06-04 16:52:03,230 loaded 2 songs
+2021-06-04 16:52:03,230 starting Mixing
+2021-06-04 16:52:03,390 starting searching process
+2021-06-04 16:52:03,810 Mixing Done
+2021-06-04 16:52:03,810 Searching similarities
+2021-06-04 16:52:03,856 Searching similarities Done
+2021-06-04 16:52:03,857 Showing Results
+2021-06-04 16:52:03,858 Results Done
+2021-06-04 16:52:25,305 loaded 2 songs
+2021-06-04 16:52:25,305 starting Mixing
+2021-06-04 16:52:25,535 starting searching process
+2021-06-04 16:52:25,910 Mixing Done
+2021-06-04 16:52:25,910 Searching similarities
+2021-06-04 16:52:25,953 Searching similarities Done
+2021-06-04 16:52:25,954 Showing Results
+2021-06-04 16:52:25,965 Results Done
+2021-06-04 16:52:31,808 loaded 2 songs
+2021-06-04 16:52:31,808 starting Mixing
+2021-06-04 16:52:31,975 starting searching process
+2021-06-04 16:52:32,341 Mixing Done
+2021-06-04 16:52:32,341 Searching similarities
+2021-06-04 16:52:32,376 Searching similarities Done
+2021-06-04 16:52:32,376 Showing Results
+2021-06-04 16:52:32,387 Results Done
+2021-06-04 16:52:32,932 loaded 2 songs
+2021-06-04 16:52:32,932 starting Mixing
+2021-06-04 16:52:33,104 starting searching process
+2021-06-04 16:52:33,486 Mixing Done
+2021-06-04 16:52:33,486 Searching similarities
+2021-06-04 16:52:33,529 Searching similarities Done
+2021-06-04 16:52:33,529 Showing Results
+2021-06-04 16:52:33,542 Results Done

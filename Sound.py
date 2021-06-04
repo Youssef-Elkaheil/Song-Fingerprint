@@ -1,7 +1,6 @@
-from pydub import AudioSegment
 from tempfile import mktemp
 from scipy.io import wavfile
-
+from pydub import AudioSegment
 from soundfile import SoundFile as sf
 
 class Sound():
