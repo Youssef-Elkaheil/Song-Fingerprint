@@ -1,10 +1,10 @@
-import UI
+from lib.UI import Ui_MainWindow
 import numpy
 import logging
-from Sound import Sound
+from lib.Sound import Sound
 from PyQt5 import QtWidgets
-from Database import Database
-from Spectrogram import Spectrogram
+from lib.Database import Database
+from lib.Spectrogram import Spectrogram
 
 # Create and configure logger
 logging.basicConfig(filename="app.log",
@@ -13,7 +13,7 @@ logging.basicConfig(filename="app.log",
 # Creating an object
 logger = logging.getLogger()
 logger.setLevel(20)
-class Main(UI.Ui_MainWindow):
+class Main(Ui_MainWindow):
 
     def __init__(self,MainWindow):
         super(Main,self).setupUi(MainWindow)
