@@ -67,36 +67,37 @@ class Main(UI.Ui_MainWindow):
 
         elif all(type(element) == numpy.ndarray for element in self.audFiles):
             logger.info("loaded 2 songs")
+            logger.info("starting Mixing")
             self.audMix = Sound.mix(self.audFiles, max(self.SamplingRate), self.Slider.value()/100)
 
-        logger.info("starting Mixing")
 
         self.spectrogram = Spectrogram.Features(self.audMix, max(self.SamplingRate))[0]
         self.testHash = Spectrogram.Hash(self.spectrogram)
-        print(self.testHash)
+        # print(self.testHash)
         logger.info("Mixing Done")
         self.statusBar.clearMessage()
         # for i in self.database:
         #     print(self.database[i]['spectrogram_hash'])
         self.check_similarity()
 
-
     def check_similarity(self):
         logger.info("Searching similarities")
         self.statusBar.showMessage("Searching Similarities")
-        for songName, songHashes in Database.read("db.json"):
-
+        for songName, songHashes in Database.read("DataBase.json"):
+            # print(songHashes["spectrogram_hash"])
             spectroDiff = Spectrogram.getSimilarity(
-                songHashes["spectrogram_Hash"], self.testHash)
+                songHashes["spectrogram_hash"], self.testHash)
+            # print(spectroDiff)
             self.similarityResults.append((songName, spectroDiff*100))
 
         self.similarityResults.sort(key=lambda x: x[1], reverse=True)
+        print(self.similarityResults)
         logger.info("Searching and getting similarities Done")
         self.statusBar.showMessage("Getting Similarities Done")
         print(self.similarityResults)
-        # self.similarityResults.sort(key=lambda x: x[1], reverse=True)
-        # logger.info("Searching similarities Done")
-        # self.statusBar.showMessage("Searching Similarities Done")
+        self.similarityResults.sort(key=lambda x: x[1], reverse=True)
+        logger.info("Searching similarities Done")
+        self.statusBar.showMessage("Searching Similarities Done")
         # self.fill_table()
 
     def fill_table(self):

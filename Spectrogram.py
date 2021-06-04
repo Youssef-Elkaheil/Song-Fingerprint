@@ -22,8 +22,8 @@ class Spectrogram():
         return hash
 
     @staticmethod
-    def getSimilarity(songs):
-        similarity = 1 - (hex_to_hash(songs[0]) - hex_to_hash(songs[1]))/256.0
+    def getSimilarity(song1,song2):
+        similarity = 1 - (hex_to_hash(song1) - hex_to_hash(song2))/256.0
         return similarity
 
     @staticmethod

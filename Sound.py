@@ -1,6 +1,3 @@
-import os
-import librosa
-import numpy as np
 from pydub import AudioSegment
 from tempfile import mktemp
 from scipy.io import wavfile
@@ -28,5 +25,5 @@ class Sound():
 
     def mix(songs, SamplingRate, weight):
         MixedData = (songs[1] * weight) + (songs[0] * (1 - weight))
-        # Sound.CreateSoundFile(MixedData,SamplingRate, "MixedSong.wav")
+        Sound.CreateSoundFile(MixedData,SamplingRate, "MixedSong.wav")
         return MixedData
