@@ -1,8 +1,7 @@
 import os
 import json
-
-from Libraries.Sound import Sound
-from Libraries.Spectrogram import Spectrogram
+from Sound import Sound
+from Spectrogram import Spectrogram
 
 class Database ():
 
@@ -15,13 +14,11 @@ class Database ():
             file.write(json.dumps(data,indent=4, separators=(",", ":")))
 
     @staticmethod
-    def read(filename=None):
-        if not isinstance(filename, str):
-            raise Exception("filename must be string!")
-
-        with open(filename, "r") as file:
-            data = json.loads(file.read())
-        return data
+    def read(path):
+        with open(path) as jsonFile:
+            data = json.load(jsonFile)
+        for song in data:
+            yield song, data[song]
 
     @staticmethod
     def Update():
@@ -30,7 +27,7 @@ class Database ():
         components = ["Full", "Music", "Vocals"]
         Groups = [] 
         for i in range(2,26):
-            if i not in (4,6,19,22): Groups.append(i)
+            if i not in (4,6,16,19,22): Groups.append(i)
         for Group_No in Groups:
             for i in range(1,5):
                 for component in components:
